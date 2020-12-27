@@ -11,4 +11,14 @@ module.exports = {
 	images: {
 		domains: [process.env.NEXT_PUBLIC_SITE_URL],
 	},
+	webpack: (config, { isServer }) => {
+		// Fixes npm packages that depend on `fs` module
+		if (!isServer) {
+		  config.node = {
+			fs: 'empty'
+		  }
+		}
+	
+		return config
+	}
 };
