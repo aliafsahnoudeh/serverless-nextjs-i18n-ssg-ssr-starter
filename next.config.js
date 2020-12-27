@@ -1,7 +1,7 @@
 require('dotenv').config({
-	path: `environments/.env.${process.env.BUILD_ENV || 'localhost'}`,
+	path: `environments/.env.${process.env.NODE_ENV || 'localhost'}`,
 });
-console.log(`Current Environment: ${process.env.BUILD_ENV}`);
+console.log(`Current Environment: ${process.env.NODE_ENV}`);
 console.log(`Current Site URL: ${process.env.NEXT_PUBLIC_SITE_URL}`);
 
 module.exports = {
