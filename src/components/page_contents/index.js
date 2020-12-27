@@ -5,6 +5,8 @@ import { useTranslation } from 'react-i18next';
 import { getContentData } from '../../lib/content';
 import Date from '../date/date';
 import ListGroup from 'react-bootstrap/ListGroup';
+import { defaultLanguage } from '../../i18n/config';
+
 export default function LangIndex({ allPostsData, language }) {
 	const { t } = useTranslation();
 	return (
@@ -36,7 +38,9 @@ export async function getStaticPathsMethod() {
 
 export async function getStaticPropsMethod({ params }) {
 	const allPostsData = getContentData('posts');
-	const language = getLanguage(params.lang);
+	let language = defaultLanguage;
+	if(params && params.lang)
+		language = getLanguage(params.lang);
 	return {
 		props: {
 			allPostsData,
