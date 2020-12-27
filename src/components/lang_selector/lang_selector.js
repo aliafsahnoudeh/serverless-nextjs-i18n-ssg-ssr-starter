@@ -19,11 +19,9 @@ const LanguageMenu = () => {
 	return (
 		<NavDropdown title={navDropdownTitle} id="language_select_dropdown">
 			{languages.map((lang, index) => {
-				const current = ['uppercase', i18n.language === lang ? 'text-blue-600' : ''];
 				return (
-					// <Link key={index} href= as={'/' + lang}>
-					<Link href={'/' + lang} key={index}>
-						<NavDropdown.Item as="a" href={'/' + lang}>
+					<Link href={'/' + (lang != 'en' ? lang : "")} key={index}>
+						<NavDropdown.Item as="a" href={'/' + (lang != 'en' ? lang : "")}>
 							{lang}
 						</NavDropdown.Item>
 					</Link>
