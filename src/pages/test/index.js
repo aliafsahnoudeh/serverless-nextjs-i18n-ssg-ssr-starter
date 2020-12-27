@@ -1,4 +1,4 @@
-import TestPageContent, { getServerSideProps } from "../../components/page_contents/test";
+import TestPageContent, { getServerSidePropsMethod } from "../../components/page_contents/test";
 
 export default function Local(props) {
 	return (
@@ -7,5 +7,5 @@ export default function Local(props) {
 }
 
 export async function getServerSideProps({ req, res }) {
-	return await getServerSideProps({ req, res });
+	return await getServerSidePropsMethod({ req, res });
 }

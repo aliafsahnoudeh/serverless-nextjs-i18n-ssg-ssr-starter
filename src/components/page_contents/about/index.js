@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Layout from '../../layout/layout';
 import { getAllLanguageSlugs, getLanguage, prependPath } from '../../../lib/lang';
-import { getItemData } from '../../../lib';
+import { getItemData } from '../../../lib/content';
 import { useTranslation } from 'react-i18next';
 
 export default function Local({ language, pageData }) {
@@ -16,7 +16,7 @@ export default function Local({ language, pageData }) {
 	);
 }
 
-export async function getStaticPaths() {
+export async function getStaticPathsMethod() {
 	const paths = getAllLanguageSlugs();
 	return {
 		paths: paths,
@@ -24,7 +24,7 @@ export async function getStaticPaths() {
 	};
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticPropsMethod({ params }) {
 	const pageData = await getItemData('content', 'about');
 	const language = getLanguage(params.lang);
 	return {

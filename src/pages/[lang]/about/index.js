@@ -1,4 +1,4 @@
-import AboutPageContent, { getStaticPaths, getStaticProps } from "../../../components/page_contents/about";
+import AboutPageContent, { getStaticPathsMethod, getStaticPropsMethod } from "../../../components/page_contents/about";
 
 export default function Local(props) {
 	return (
@@ -7,9 +7,9 @@ export default function Local(props) {
 }
 
 export async function getStaticPaths() {
-	return await getStaticPaths();
+	return await getStaticPathsMethod();
 }
 
 export async function getStaticProps({ params }) {
-	return await getStaticProps({ params });
+	return await getStaticPropsMethod({ params });
 }

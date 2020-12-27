@@ -18,7 +18,7 @@ export function prependPath(path) {
 	return `/${currentLanguage}${path}`;
 }
 /**
- * Creates an array of the current language slugs for use in the getStaticPaths for [lang]/index.js
+ * Creates an array of the current language slugs for use in the getStaticPathsMethod for [lang]/index.js
  * @return {Array}     Returns and array of objects representing the current language slugs
  */
 export function getAllLanguageSlugs() {

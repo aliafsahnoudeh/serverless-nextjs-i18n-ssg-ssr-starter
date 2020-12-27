@@ -10,7 +10,7 @@ export default function LangIndex({ language, method }) {
 		</Layout>
 	);
 }
-export async function getServerSideProps({ req, res }) {
+export async function getServerSidePropsMethod({ req, res }) {
 	// console.log(req);
 	var method = req.method;
 	var currentLang = getLanguageFromRequest(req);

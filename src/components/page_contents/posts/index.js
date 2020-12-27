@@ -27,7 +27,7 @@ export default function LangIndex({ allPostsData, language }) {
 	);
 }
 
-export async function getStaticPaths() {
+export async function getStaticPathsMethod() {
 	const paths = getAllLanguageSlugs();
 	return {
 		paths,
@@ -35,7 +35,7 @@ export async function getStaticPaths() {
 	};
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticPropsMethod({ params }) {
 	const allPostsData = getContentData('posts');
 	const language = getLanguage(params.lang);
 	return {

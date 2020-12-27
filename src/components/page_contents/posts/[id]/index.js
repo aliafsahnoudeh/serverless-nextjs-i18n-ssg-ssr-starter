@@ -38,14 +38,14 @@ export default function Post({ postData }) {
 	);
 }
 
-export async function getStaticPaths({ locales }) {
+export async function getStaticPathsMethod({ locales }) {
 	const paths = getAllContentIds('posts');
 	return {
 		paths: paths,
 		fallback: false,
 	};
 }
-export async function getStaticProps({ params }) {
+export async function getStaticPropsMethod({ params }) {
 	const language = getLanguage(params.lang);
 	const postData = await getItemData('posts', params.id);
 	return {
