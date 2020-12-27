@@ -1,8 +1,8 @@
-import SinglePostPageContent, { getStaticPaths, getStaticProps } from "../../../../components/page_contents/posts/[id]";
+import AboutPageContent, { getStaticPaths, getStaticProps } from "../../components/page_contents/about";
 
 export default function Local(props) {
 	return (
-		<SinglePostPageContent { ...props } />
+		<AboutPageContent { ...props } />
 	);
 }
 

@@ -1,4 +1,4 @@
-import TestPageContent, { getServerSideProps } from "../../../components/page_contents/test";
+import TestPageContent, { getServerSideProps } from "../../components/page_contents/test";
 
 export default function Local(props) {
 	return (

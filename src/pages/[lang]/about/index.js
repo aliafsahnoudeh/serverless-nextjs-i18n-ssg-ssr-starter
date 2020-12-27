@@ -1,37 +1,15 @@
-import Link from 'next/link';
-import Head from 'next/head';
-import Layout from '../../../components/layout/layout';
-import { getAllLanguageSlugs, getLanguage, prependPath } from '../../../lib/lang';
-import { getItemData } from '../../../lib/content';
-import { useTranslation } from 'react-i18next';
+import AboutPageContent, { getStaticPaths, getStaticProps } from "../../../components/page_contents/about";
 
-export default function Local({ language, pageData }) {
-	const { t } = useTranslation();
+export default function Local(props) {
 	return (
-		<Layout>
-			<Head>
-				<title>{pageData.title}</title>
-			</Head>
-			<div dangerouslySetInnerHTML={{ __html: pageData.contentHtml }} />
-		</Layout>
+		<AboutPageContent { ...props } />
 	);
 }
 
 export async function getStaticPaths() {
-	const paths = getAllLanguageSlugs();
-	return {
-		paths: paths,
-		fallback: false,
-	};
+	return await getStaticPaths();
 }
 
 export async function getStaticProps({ params }) {
-	const pageData = await getItemData('content', 'about');
-	const language = getLanguage(params.lang);
-	return {
-		props: {
-			pageData,
-			language,
-		},
-	};
+	return await getStaticProps({ params });
 }
